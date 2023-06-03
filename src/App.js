@@ -10,13 +10,13 @@ import { useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
-// import About from './components/About';
+import About from './components/About';
 import Alert from './components/Alert'
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 
 function App() {
@@ -61,7 +61,7 @@ function App() {
       setMode('dark');
       document.body.style.backgroundColor='#042743';
       showAlert("Dark mode has been enabled","success")
-      document.title="TextUtils - Dark Mode"
+      // document.title="TextUtils - Dark Mode"
       // setInterval(()=>{
       //   document.title="TextUtils - is Amazing"
       // },2000)
@@ -74,7 +74,7 @@ function App() {
       setMode('light');
       document.body.style.backgroundColor='white';
       showAlert("Light mode has been enabled","success")
-      document.title="TextUtils - Light Mode"
+      // document.title="TextUtils - Light Mode"
     }
     
   }
@@ -82,27 +82,25 @@ function App() {
 
   return (
   <>
-
-{/* <Router> */}
+ <Router> 
   <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode}/>
 
   <Alert alert={alert}/>
 
   <div className="container my-3">
-  {/* <Switch> */}
+   <Switch> 
     {/*exact match recommended- 
      /users --> Component 1
     /users/home --> Component 2 */}
-          {/* <Route exact path="/about"> */}
-            {/* <About /> */}
-          {/* </Route> */}
-          {/* <Route exact path="/"> */}
-          <TextForm showAlert={showAlert} heading="Enter the Text to analyze Below" mode={mode}/>
-          {/* </Route> */}
-    {/* </Switch> */}
-
+           <Route exact path="/about"> 
+             <About  mode={mode}/> 
+             </Route> 
+           <Route exact path="/"> 
+          <TextForm showAlert={showAlert} heading="Try TextUtils- Word Counter,Character counter,Remove extra spaces" mode={mode}/>
+           </Route> 
+     </Switch> 
   </div>
-  {/* </Router> */}
+  </Router> 
   </>
 
   ); 
